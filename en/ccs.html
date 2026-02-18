@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CCS - Combined Charging System overview, features, and integration guidance.">
+    <title>CCS | MW Controllers</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <link rel="stylesheet" href="../css/site.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-umd.js"></script>
+</head>
+<body class="theme-ccs">
+    <div id="navbar-placeholder" data-lang="en"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <img src="../img/ccs_icon.png" alt="CCS Icon" style="width:100%; height:100%; object-fit: contain;">
+            </div>
+            <h1 class="text-xxl">CCS (Combined Charging System)</h1>
+            <p class="text-large">Universal DC fast-charging standard adopted across Europe and North America, supporting both AC and DC in one connector.</p>
+            <a class="btn btn-primary btn-lg" href="index.html#contact">Need a CCS controller?</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="columns">
+            <div class="column col-12">
+                <h2 class="section-title">Charging Controller Description</h2>
+                <div class="card p-2">
+                    <div class="columns">
+                        <div class="column col-12">
+                            <p>The controller is designed for use as part of an electric charging station. It supports the following charging standards: DIN SPEC 70121 and ISO 15118.</p>
+                            
+                            <div class="columns" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                                <div class="column col-12 col-md-4" style="text-align: center;">
+                                    <img src="../img/ccs_post/CCS_Photo-2.png" alt="CCS Controller" class="img-responsive rounded" style="width: 100%; max-width: 400px; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                                </div>
+                                <div>
+                                    <span class="chip">Supply voltage: 12V ± 5%</span>
+                                    <span class="chip">Power consumption: < 5W</span>
+                                    <span class="chip">Operating temperature: -40 to +80°C</span>
+                                    <span class="chip">Dimensions (L-W-H): 125-90-40(mm)</span>
+                                </div>
+                                <div class="column col-12 col-md-8">
+                                    <h4 style="margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Controller Features:</h4>
+                                    <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                                        <li>1 PLC modem interface</li>
+                                        <li>2 galvanically isolated RS485 interfaces</li>
+                                        <li>1 galvanically isolated CAN interface</li>
+                                        <li>2 galvanically isolated temperature measurement channels</li>
+                                        <li>2 galvanically isolated digital inputs</li>
+                                        <li>2 relays (5A)</li>
+                                        <li>1 USB Type-C port for logging</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--accent);">Operating Modes:</h4>
+                            <p>The controller can independently control the power modules and also act as a slave device. Control of the power modules is delegated to the central controller. This mode is required for stations with power balancing.</p>
+                            
+                            <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--accent);">Communication Protocol:</h4>
+                            <p>The primary control protocol is <strong>Modbus RTU</strong>. The register map can be modified upon customer approval.</p>
+                            
+                            <h4 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Log Example:</h4>
+                            <div style="background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 1rem; margin-top: 1rem; overflow-x: auto;">
+                                <pre style="margin: 0; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; line-height: 1.6; color: #333;"><code>// Modbus RTU Example - Reading Controller Status
+Detect insert Pistol, Vpt = 9.97
+Got Enable "Start" from Modbus
+========================= Starting SLAC =========================
+[0:4:42.404] [CM_SLAC_PARAM_REQ ->] {ff ff ff ff ff ff 00 7d fa 06 9f 4e 88 e1 01 64 60 00 00 00 00 fc fd de 60 56 5d 76 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 }, size = 60
+[0:4:42.268] CM_SLAC_PARAM_CNF <- {00 7d fa 06 9f 4e 02 2b 00 3e 00 04 88 e1 01 65 60 00 00 ff ff ff ff ff ff 0a 06 01 00 7d fa 06 9f 4e 00 00 fc fd de 60 56 5d 76 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 }, size = 60
+--------------------------------------------------------------------
+EVCC MAC: [00:7d:fa:06:9f:4e], runID: [fc fd de 60 56 5d 76 79]
+--------------------------------------------------------------------
+[0:4:42.268] [CM_START_ATTEN_CHAR_IND ->] {ff ff ff ff ff ff 00 7d fa 06 9f 4e 88 e1 01 6a 60 00 00 00 00 0a 06 01 00 7d fa 06 9f 4e fc fd de 60 56 5d 76 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 }, size = 60
+[0:4:42.500] [CM_START_ATTEN_CHAR_IND ->] {ff ff ff ff ff ff 00 7d fa 06 9f 4e 88 e1 01 6a 60 00 00 00 00 0a 06 01 00 7d fa 06 9f 4e fc fd de 60 56 5d 76 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 }, size = 60
+[0:4:42.536] [CM_START_ATTEN_CHAR_IND ->] {ff ff ff ff ff ff 00 7d fa 06 9f 4e 88 e1 01 6a 60 00 00 00 00 0a 06 01 00 7d fa 06 9f 4e fc fd de 60 56 5d 76 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 }, size = 60
+--------------Received 3 CM_START_ATTEN_CHAR_IND-------------------
+For MAC EVCC = [00:7d:fa:06:9f:4e]
+NUM_SOUNDS = 10, TIME_OUT = 6, forw_Sta = [00:7d:fa:06:9f:4e], run_id = [fc:fd:de:60:56:5d:76:79]
+--------------------------------------------------------------------
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column col-12">
+                <h3 class="section-title">CCS 3D Model</h3>
+                <div class="card p-2">
+                    <div class="model-viewer-wrap" style="width: 100%; max-width: 600px; height: 400px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative;">
+                        <model-viewer
+                            src="../img/CCS1.glb"
+                            alt="CCS charging connector 3D model"
+                            camera-controls
+                            touch-action="pan-y"
+                            auto-rotate
+                            camera-orbit="45deg 75deg 2.5m"
+                            loading="eager"
+                            style="width: 100%; height: 100%; background-color: #e8eaf6;">
+                            <div slot="poster" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #e8eaf6; color: #1a237e; font-size: 1rem;">
+                                Loading 3D model…
+                            </div>
+                        </model-viewer>
+                        <p style="margin-top: 0.75rem; font-size: 0.85rem; color: #666; text-align: center;">If the model doesn’t appear, open the page via a local server (e.g. in this folder run: <code>python -m http.server 8080</code>, then visit <code>http://localhost:8080/ccs.html</code>).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column col-12 col-md-6">
+                <h3 class="section-title">Typical Connection Diagram</h3>
+                <div class="card p-2">
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <img src="../img/ccs_post/ccs_connection.png" alt="CCS Typical Connection Diagram" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-6">
+                <h3 class="section-title">Structural Diagram of the Controller:</h3>
+                <div class="card p-2">
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <img src="../img/ccs_post/ccs_struct.png" alt="CCS Structural Diagram" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column col-12">
+                <div class="card p-2">
+                    <div class="columns">
+                        <div class="column col-12 col-md-8">
+                            <h3>Need a CCS controller?</h3>
+                            <p>We provide CCS-compliant controllers ready for integration, with support for certification, testing, and field rollout.</p>
+                        </div>
+                        <div class="column col-12 col-md-4 text-right text-center-sm">
+                            <a class="btn btn-primary btn-block-sm" href="index.html#contact">Contact MW Controllers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MW Controllers. CCS Overview.</p>
+    </footer>
+    <script src="../js/navbar.js"></script>
+</body>
+</html>
+

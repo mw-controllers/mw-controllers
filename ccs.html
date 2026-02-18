@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CCS (Комбинированная система зарядки) – контроллер зарядки для электромобилей. MW Controllers.">
+    <title>CCS | MW Controllers</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <link rel="stylesheet" href="css/site.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-umd.js"></script>
+</head>
+<body class="theme-ccs">
+    <div id="navbar-placeholder" data-lang="ru"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <img src="img/ccs_icon.png" alt="CCS" style="width:100%; height:100%; object-fit: contain;">
+            </div>
+            <h1 class="text-xxl">CCS</h1>
+            <p class="text-large">Стандарт быстрой зарядки постоянным током для Европы и Северной Америки, один разъём для AC и DC.</p>
+            <a class="btn btn-primary btn-lg" href="index.html#contact">Нужен контроллер CCS?</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="columns">
+            <div class="column col-12">
+                <h2 class="section-title">Описание:</h2>
+                <div class="card p-2">
+                    <div class="columns">
+                        <div class="column col-12">
+                            <p>Контроллер предназначен для работы в составе зарядной станции для электромобилей. Поддерживаются стандарты DIN SPEC 70121 и ISO 15118.</p>
+                            <div class="columns" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                                <div class="column col-12 col-md-4" style="text-align: center;">
+                                    <img src="img/ccs_post/CCS_Photo-2.png" alt="Контроллер CCS" class="img-responsive rounded" style="width: 100%; max-width: 400px; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                                </div>
+                                <div>
+                                    <span class="chip">Напряжение питания: 12В ± 5%</span>
+                                    <span class="chip">Потребление: &lt; 5Вт</span>
+                                    <span class="chip">Температура: -40…+80°C</span>
+                                    <span class="chip">Габариты: 125-90-40 мм</span>
+                                </div>
+                                <div class="column col-12 col-md-8">
+                                    <h4 style="margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Возможности контроллера:</h4>
+                                    <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                                        <li>1 интерфейс PLC-модема</li>
+                                        <li>2 гальванически развязанных интерфейса RS485</li>
+                                        <li>1 гальванически развязанный интерфейс CAN</li>
+                                        <li>2 канала измерения температуры</li>
+                                        <li>2 цифровых входа</li>
+                                        <li>2 реле (5А)</li>
+                                        <li>1 порт USB Type-C для логирования</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--accent);">Режимы работы:</h4>
+                            <p>Контроллер может самостоятельно управлять силовыми модулями или работать как подчинённое устройство. В режиме подчинённого устройства управление силовыми модулями передаётся центральному контроллеру. Этот режим необходим для станций с балансировкой мощности.</p>
+                            <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--accent);">Протокол связи:</h4>
+                            <p>Основной протокол управления — <strong>Modbus RTU</strong>. Карта регистров может быть изменена по согласованию с заказчиком.</p>
+                            <h4 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Пример лога:</h4>
+                            <div style="background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 1rem; margin-top: 1rem; overflow-x: auto;">
+                                <pre style="margin: 0; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; line-height: 1.6; color: #333;"><code>// Modbus RTU – чтение статуса контроллера
+Detect insert Pistol, Vpt = 9.97
+
+Got Enable "Start" from Modbus
+========================= Starting SLAC =========================
+[0:4:42.404]  [CM_SLAC_PARAM_REQ ->] {ff ff ff ff ff ff 00 7d fa 06 9f 4e 88 e1 01 64 60 00 00 00 00 fc fd de 60 56 5d 76 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 }, size = 60
+[0:4:42.268]  CM_SLAC_PARAM_CNF <- {00 7d fa 06 9f 4e 02 2b 00 3e 00 04 88 e1 01 65 60 00 00 ff ff ff ff ff ff 0a 06 01 00 7d fa 06 9f 4e 00 00 fc fd de 60 56 5d 76 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 }, size = 60
+--------------------------------------------------------------------
+EVCC MAC: [00:7d:fa:06:9f:4e], runID: [fc fd de 60 56 5d 76 79]
+--------------------------------------------------------------------
+[0:4:42.268]  [CM_START_ATTEN_CHAR_IND ->] {ff ff ff ff ff ff 00 7d fa 06 9f 4e 88 e1 01 6a 60 00 00 00 00 0a 06 01 00 7d fa 06 9f 4e fc fd de 60 56 5d 76 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 }, size = 60
+[0:4:42.500]  [CM_START_ATTEN_CHAR_IND ->] {ff ff ff ff ff ff 00 7d fa 06 9f 4e 88 e1 01 6a 60 00 00 00 00 0a 06 01 00 7d fa 06 9f 4e fc fd de 60 56 5d 76 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 }, size = 60
+[0:4:42.536]  [CM_START_ATTEN_CHAR_IND ->] {ff ff ff ff ff ff 00 7d fa 06 9f 4e 88 e1 01 6a 60 00 00 00 00 0a 06 01 00 7d fa 06 9f 4e fc fd de 60 56 5d 76 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 }, size = 60
+--------------Received 3 CM_START_ATTEN_CHAR_IND-------------------
+For MAC EVCC = [00:7d:fa:06:9f:4e]
+NUM_SOUNDS = 10, TIME_OUT = 6, forw_Sta = [00:7d:fa:06:9f:4e], run_id = [fc:fd:de:60:56:5d:76:79]
+--------------------------------------------------------------------
+...</code></pre>
+                            </div>
+                            <h4 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--accent);">Расширенный анализ:</h4>
+                            <p>Разработанное сервисное приложение позволяет проводить детальный анализ работы контроллера и его взаимодействия с электромобилем. Доступен экспорт данных в формате pcap.</p>
+                            <figure style="margin: 1.5rem auto; text-align: center; max-width: 100%;">
+                                <img src="img/ccs_post/tool_screen.png" alt="Tool screen" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column col-12">
+                <h3 class="section-title">3D-модель:</h3>
+                <div class="card p-2">
+                    <div class="model-viewer-wrap" style="width: 100%; max-width: 600px; height: 400px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative;">
+                        <model-viewer src="img/CCS_V7.glb" alt="3D-модель разъёма CCS" camera-controls touch-action="pan-y" auto-rotate camera-orbit="45deg 75deg 2.5m" loading="eager" style="width: 100%; height: 100%; background-color: #e8eaf6;">
+                            <div slot="poster" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #e8eaf6; color: #1a237e; font-size: 1rem;">Загрузка 3D-модели…</div>
+                        </model-viewer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column col-12 col-md-6">
+                <h3 class="section-title">Типовая схема подключения</h3>
+                <div class="card p-2">
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <img src="img/ccs_post/ccs_connection.png" alt="Схема подключения CCS" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                    </div>
+                </div>
+            </div>
+            <div class="column col-12 col-md-6">
+                <h3 class="section-title">Структурная схема контроллера</h3>
+                <div class="card p-2">
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <img src="img/ccs_post/ccs_struct.png" alt="Структурная схема CCS" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column col-12">
+                <div class="card p-2">
+                    <div class="columns">
+                        <div class="column col-12 col-md-8">
+                            <h3>Нужен контроллер CCS?</h3>
+                            <p>Мы поставляем контроллеры, совместимые с CCS, готовые к интеграции, с поддержкой сертификации и внедрения.</p>
+                        </div>
+                        <div class="column col-12 col-md-4 text-right text-center-sm">
+                            <a class="btn btn-primary btn-block-sm" href="index.html#contact">Связаться с нами</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MW Controllers. CCS.</p>
+    </footer>
+    <script src="js/navbar.js"></script>
+</body>
+</html>

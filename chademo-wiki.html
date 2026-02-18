@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CHAdeMO Controller Wiki — техническая документация и спецификации контроллеров зарядки CHAdeMO">
+    <title>CHAdeMO Controller Wiki | MW Controllers</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="theme-chademo">
+    <div id="navbar-placeholder" data-lang="ru"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <img src="img/chademo_icon.png" alt="CHAdeMO Icon" style="width:100%; height:100%; object-fit: contain;">
+            </div>
+            <h1 class="text-xxl">CHAdeMO Controller Wiki</h1>
+            <p class="text-large">Техническая документация и спецификации контроллеров зарядки CHAdeMO</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="columns">
+            <div class="column col-12">
+                <h2 class="section-title">Обзор контроллера</h2>
+                <div class="card p-2">
+                    <p style="color: #e03e2d; text-decoration: underline;">Описание стандарта не претендует на абсолютное соответствие официальной документации — это наша интерпретация с собственной аппаратной и программной реализацией.</p>
+                    <p>Стандарт CHAdeMO v0.9, v1.1  имеет ограничение: Vmax ≤ 500 В, Imax ≤ 125 А, Pmax ≤ 62,5 кВт.</p>
+                    <div class="figures-inline" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-end; justify-content: center; margin: 1rem 0;">
+                        <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/CHAdeMO_connector.svg" alt="Разъём CHAdeMO" style="width: 300px; height: auto; object-fit: contain;">
+                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Разъём CHAdeMO</figcaption>
+                        </figure>
+                        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">FG</span> — Земля, опорный сигнал для линий управления</li>
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">SS1 / SS2</span> — Сигнал последовательности зарядки, запуск/остановка зарядки</li>
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">DCP</span> — Разрешение зарядки, автомобиль даёт EVSE разрешение на подключение питания</li>
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">DC+ / DC-</span> — Питание постоянным током, подаваемое питание</li>
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">PP</span> — Обнаружение близости разъёма, блокировка зарядки, отключение силовой передачи при подключении</li>
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">C-H / C-L</span> — Шина CAN, связь с шиной автомобиля для установки рабочих параметров</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column col-12">
+                    <h2 class="section-title">Аппаратная часть</h2>
+                    <div class="card p-2">
+                        <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
+                            <img src="img/chademo_wiki/chademo_sheme.png" alt="Аппаратная часть CHAdeMO" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Схема последовательности</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="column col-12">
+                    <h2 class="section-title">Программная часть</h2>
+                    <p>Протокол обмена основан на спецификации стандарта CAN 2.0B со скоростью обмена 500 кбит/с и 11-битным идентификатором.</p>
+                    <p>Всего в обмене данными участвуют пять типов сообщений со следующими идентификаторами.</p>
+                    <div class="card p-2">
+                        <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
+                            <img src="img/chademo_wiki/msgs.png" alt="Сообщения CHAdeMO" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Сообщения связи CHAdeMO</figcaption>
+                        </figure>
+                    </div>
+                    <p>Все эти сообщения присутствуют на всех этапах сеанса зарядки (в отличие от сообщений CCS2 и GB/T).</p>
+                    <p>Несмотря на простоту, производители зарядных станций и автомобилей интерпретируют процедуру по-разному в зависимости от ситуации. Это часто связано с форматом официальной документации.</p>
+                    <p>Выше приведена таблица сообщений для версии протокола 1.1; в версии протокола 0.9 есть незначительные различия, которые необходимо учитывать при выпуске программного обеспечения.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MW Controllers. CHAdeMO Controller Wiki.</p>
+    </footer>
+    <script src="js/navbar.js"></script>
+</body>
+</html>
+

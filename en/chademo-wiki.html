@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CHAdeMO Controller Wiki - Technical documentation and specifications for CHAdeMO charging controllers">
+    <title>CHAdeMO Controller Wiki | MW Controllers</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="theme-chademo">
+    <div id="navbar-placeholder" data-lang="en"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <img src="../img/chademo_icon.png" alt="CHAdeMO Icon" style="width:100%; height:100%; object-fit: contain;">
+            </div>
+            <h1 class="text-xxl">CHAdeMO Controller Wiki</h1>
+            <p class="text-large">Technical documentation and specifications for CHAdeMO charging controllers</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="columns">
+            <div class="column col-12">
+                <h2 class="section-title">Controller Overview</h2>
+                <div class="card p-2">
+                    <p style="color: #e03e2d; text-decoration: underline;">The description of the standard does not claim to be in absolute compliance with the official documentation, it is our interpretation with its own hardware and software implementation.</p>
+                    <p>CHAdeMO standard v0.9, v1.1  has a limitation: Vmax ≤ 500V, Imax ≤ 125A, Pmax ≤ 62.5 kW.</p>
+                    <div class="figures-inline" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-end; justify-content: center; margin: 1rem 0;">
+                        <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/CHAdeMO_connector.svg" alt="CCS 2" style="width: 300px; height: auto; object-fit: contain;">
+                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">CHAdeMO connector</figcaption>
+                        </figure>
+                        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">FG</span> — Ground, reference for control lines</li>
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">SS1 / SS2</span> — Charge sequence signal, start/stop charging</li>
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">DCP</span> — Charging enable, vehicle grants EVSE permission to connect power</li>
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">DC+ / DC-</span> — DC power, supplied power</li>
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">PP</span> — Connector proximity detection, charge interlock, disables drivetrain while connected</li>
+                            <li style="display: flex; align-items: baseline; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--chip-bg); border-radius: 8px; border-left: 3px solid var(--accent);"><span style="font-weight: 700; color: var(--accent); min-width: 3rem;">C-H / C-L</span> — CAN bus, communication with vehicle bus to establish operational parameters</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column col-12">
+                    <h2 class="section-title">Hardware</h2>
+                    <div class="card p-2">
+                        <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
+                            <img src="../img/chademo_wiki/chademo_sheme.png" alt="Chademo Hardware" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Sequence circuit</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="column col-12">
+                    <h2 class="section-title">Software part</h2>
+                    <p>The exchange protocol is based on the CAN 2.0B standard specification, with an exchange rate of 500 kbit/s, and an 11-bit identifier.</p>
+                    In total, five message types with the following identifiers are involved in data exchange.
+                    <div class="card p-2">
+                        <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
+                            <img src="../img/chademo_wiki/msgs.png" alt="Chademo communication" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Chademo communication messages</figcaption>
+                        </figure>
+                    </div>
+                    <p>All these messages are present at all stages of the charging session (unlike the CCS2 and GB/T messages).</p>
+                    <p>Despite its simplicity, charging station and vehicle manufacturers interpret the procedure differently depending on the situation. This is often due to the format of the official documentation.</p>
+                    <p>Below is a table of messages for protocol version 1.1, in protocol version 0.9 there are minor differences, and these differences must be taken into account during software release.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MW Controllers. CHAdeMO Controller Wiki.</p>
+    </footer>
+    <script src="../js/navbar.js"></script>
+</body>
+</html>
+

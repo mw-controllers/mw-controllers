@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Type2 Контроллер Вики - Техническая документация и спецификации для контроллеров зарядки Type2 AC">
+    <title>Type2 Контроллер Вики | MW Controllers</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="theme-type2">
+    <div id="navbar-placeholder" data-lang="ru"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <img src="img/type2_icon.png" alt="Type2 Icon" style="width:100%; height:100%; object-fit: contain;">
+            </div>
+            <h1 class="text-xxl">Type2 Controller Wiki</h1>
+            <p class="text-large">Техническая документация и спецификации для контроллеров зарядки Type2 AC</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="columns">
+            <div class="column col-12">
+                <h2 class="section-title">Обзор</h2>
+                <div class="card p-2">
+                    <p style="color: #e03e2d; text-decoration: underline;">Описание стандарта не претендует на абсолютное соответствие официальной документации, это наша интерпретация с собственной аппаратной и программной реализацией.</p>
+                    
+                    <div class="figures-inline" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-end; justify-content: center; margin: 1.5rem 0;">
+                        <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/IEC_62196-2_Type_2_%28plug%29.svg" alt="TYPE 2 (IEC-62196-2)" style="width: 300px; height: auto; object-fit: contain;">
+                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">TYPE 2 (IEC-62196-2)</figcaption>
+                        </figure>
+                        <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/GBT_20234_%28AC%29.svg" alt="GB/T 20234-2" style="width: 300px; height: auto; object-fit: contain;">
+                            <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">GB/T 20234-2</figcaption>
+                        </figure>
+                    </div>
+                    
+                    <p>Аппаратная и программная реализация Type 2 и GB/T 18487.1 практически идентична, поэтому мы будем использовать стандарт GB/T 18487.1 в качестве примера.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column col-12">
+                <h2 class="section-title">Аппаратная часть</h2>
+                <div class="card p-2">
+                    <p>Диаграмма инфраструктуры зарядки согласно протоколу GB/T 18487.1:</p>
+                    <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
+                        <img src="img/type2_wiki/charging_infrastructure.png" alt="Диаграмма инфраструктуры зарядки" style="width: 90%; max-width: 961px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                        <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Диаграмма инфраструктуры зарядки</figcaption>
+                    </figure>
+                    
+                    <p style="margin-top: 1.5rem;">Принцип зарядки следующий:</p>
+                    <p>При вставке разъёма в розетку изменяется амплитуда сигнала "CP". Это значение определяет готовность электромобиля начать сеанс зарядки. Модуль зарядки, в свою очередь, генерирует сигнал PWM, скважность которого определяет допустимый ток, который может обеспечить зарядная станция.</p>
+                    <p>Сигнал "CC/PP" также используется для обнаружения вставки зарядного разъёма и определения пропускной способности зарядного кабеля.</p>
+                    
+                    <div class="card p-2" style="margin-top: 1.5rem;">
+                        <h6 style="margin-bottom: 0.75rem; color: var(--accent); font-size: 0.95rem;">Описание значений амплитуды сигнала "CP":</h6>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+                                <thead>
+                                    <tr style="background: var(--chip-bg); border-bottom: 2px solid var(--accent);">
+                                        <th style="padding: 0.75rem; text-align: center; font-weight: 700; color: var(--accent);">Positive component of signal "CP", V</th>
+                                        <th style="padding: 0.75rem; text-align: center; font-weight: 700; color: var(--accent);">PWM, ON/OFF</th>
+                                        <th style="padding: 0.75rem; text-align: left; font-weight: 700; color: var(--accent);">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+                                        <td style="padding: 0.75rem; text-align: center; font-weight: 600;">+12</td>
+                                        <td style="padding: 0.75rem; text-align: center;">OFF</td>
+                                        <td style="padding: 0.75rem;">Charger is not ready to transfer an energy, EV not ready to receive energy</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.02);">
+                                        <td style="padding: 0.75rem; text-align: center; font-weight: 600;">+12</td>
+                                        <td style="padding: 0.75rem; text-align: center;">ON</td>
+                                        <td style="padding: 0.75rem;">Charger is ready to transfer an energy, EV not ready to receive energy</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+                                        <td style="padding: 0.75rem; text-align: center; font-weight: 600;">+9</td>
+                                        <td style="padding: 0.75rem; text-align: center;">OFF</td>
+                                        <td style="padding: 0.75rem;">Charger is not ready to transfer an energy, EV not ready to receive energy</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.02);">
+                                        <td style="padding: 0.75rem; text-align: center; font-weight: 600;">+9</td>
+                                        <td style="padding: 0.75rem; text-align: center;">ON</td>
+                                        <td style="padding: 0.75rem;">Charger is ready to transfer an energy, EV not ready to receive energy</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+                                        <td style="padding: 0.75rem; text-align: center; font-weight: 600;">+6</td>
+                                        <td style="padding: 0.75rem; text-align: center;">OFF</td>
+                                        <td style="padding: 0.75rem;">Charger is not ready to transfer an energy, EV ready to receive energy</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.02);">
+                                        <td style="padding: 0.75rem; text-align: center; font-weight: 600;">+6</td>
+                                        <td style="padding: 0.75rem; text-align: center;">ON</td>
+                                        <td style="padding: 0.75rem;">Charger is ready to transfer an energy, EV ready to receive energy</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+                                        <td style="padding: 0.75rem; text-align: center; font-weight: 600;">+3</td>
+                                        <td style="padding: 0.75rem; text-align: center;">OFF</td>
+                                        <td style="padding: 0.75rem;">Charger is not ready to transfer an energy, EV ready to receive energy</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.02);">
+                                        <td style="padding: 0.75rem; text-align: center; font-weight: 600;">+3</td>
+                                        <td style="padding: 0.75rem; text-align: center;">ON</td>
+                                        <td style="padding: 0.75rem;">Charger is ready to transfer an energy, EV ready to receive energy</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+                                        <td style="padding: 0.75rem; text-align: center; font-weight: 600;">0</td>
+                                        <td style="padding: 0.75rem; text-align: center;">-</td>
+                                        <td style="padding: 0.75rem; color: #e03e2d; font-weight: 600;">ERROR</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column col-12">
+                <h2 class="section-title">Программная часть</h2>
+                <div class="card p-2">
+                    <p>Программная реализация состоит только из измерения состояния сигналов "CP" и "PP" и генерации сигнала PWM в зависимости от допустимого тока.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MW Controllers. Type2 Контроллер Вики.</p>
+    </footer>
+    <script src="js/navbar.js"></script>
+</body>
+</html>

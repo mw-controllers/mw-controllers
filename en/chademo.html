@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CHAdeMO DC fast charging overview, features, and integration guidance.">
+    <title>CHAdeMO | MW Controllers</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="theme-chademo">
+    <div id="navbar-placeholder" data-lang="en"></div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <img src="../img/chademo_icon.png" alt="CHAdeMO Icon" style="width:100%; height:100%; object-fit: contain;">
+            </div>
+            <h1 class="text-xxl">CHAdeMO</h1>
+            <p class="text-large">Japanese-developed DC fast-charging standard, widely adopted across Asia and supported globally.</p>
+            <a class="btn btn-primary btn-lg" href="index.html#contact">Need a CHAdeMO controller?</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="columns">
+            <div class="column col-12">
+                <h2 class="section-title">Charging Controller Description</h2>
+                <div class="card p-2">
+                    <div class="columns">
+                        <div class="column col-12">
+                            <p>The controller is designed for use as part of an electric charging station. It supports the CHAdeMO standard v0.9 and v1.1.</p>
+                            
+                            <div class="columns" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                                <div class="column col-12 col-md-4" style="text-align: center;">
+                                    <img src="../img/chademo_post/Chademo_Photo-2.png" alt="CHAdeMO Controller" class="img-responsive rounded" style="width: 100%; max-width: 400px; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                                </div>
+                                <div>
+                                    <span class="chip">Supply voltage: 12V ± 5%</span>
+                                    <span class="chip">Power consumption: < 5W</span>
+                                    <span class="chip">Operating temperature: -40 to +80°C</span>
+                                    <span class="chip">Dimensions (L-W-H): 125-90-40(mm)</span>
+                                </div>
+                                <div class="column col-12 col-md-8">
+                                    <h4 style="margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Controller Features:</h4>
+                                    <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                                        <li>2 galvanically isolated RS485 interfaces</li>
+                                        <li>2 galvanically isolated CAN interfaces</li>
+                                        <li>2 galvanically isolated temperature measurement channels</li>
+                                        <li>2 galvanically isolated digital inputs</li>
+                                        <li>1 relay (5A), 1 relay (15A)</li>
+                                        <li>1 USB Type-C port for logging</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--accent);">Actuator Control:</h4>
+                            <p>Scheme for direct actuator (motor in outlet) with an automatic release function after a power failure.</p>
+                            
+                            <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--accent);">Operating Modes:</h4>
+                            <p>The controller can independently control the power modules and also act as a slave device. Control of the power modules is delegated to the central controller. This mode is required for stations with power balancing.</p>
+                            
+                            <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--accent);">Communication Protocol:</h4>
+                            <p>The primary control protocol is <strong>Modbus RTU</strong>. The register map can be modified upon customer approval.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column col-12 col-md-6">
+                <h3 class="section-title">Typical Connection Diagram</h3>
+                <div class="card p-2">
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <img src="../img/chademo_post/chademo_connection.png" alt="CHAdeMO Typical Connection Diagram" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-6">
+                <h3 class="section-title">Structural Diagram of the Controller:</h3>
+                <div class="card p-2">
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <img src="../img/chademo_post/chademo_struct.png" alt="CHAdeMO Structural Diagram" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="columns">
+            <div class="column col-12">
+                <div class="card p-2">
+                    <div class="columns">
+                        <div class="column col-12 col-md-8">
+                            <h3>Need a CHAdeMO controller?</h3>
+                            <p>We provide CHAdeMO-compliant controllers ready for integration, with support for certification, testing, and field rollout.</p>
+                        </div>
+                        <div class="column col-12 col-md-4 text-right">
+                            <a class="btn btn-primary" href="index.html#contact">Contact MW Controllers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MW Controllers. CHAdeMO Overview.</p>
+    </footer>
+    <script src="../js/navbar.js"></script>
+</body>
+</html>
+
