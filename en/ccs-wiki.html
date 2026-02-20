@@ -34,7 +34,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-icon">
-                <img src="../img/ccs_icon.png" alt="CCS Icon" style="width:100%; height:100%; object-fit: contain;">
+                <img src="../img/ccs_icon.png" alt="CCS Icon" fetchpriority="high" decoding="async" style="width:100%; height:100%; object-fit: contain;">
             </div>
             <h1 class="text-xxl">CCS Controller Wiki</h1>
             <p class="text-large">Technical documentation and specifications for CCS charging controllers</p>
@@ -51,11 +51,11 @@
                     <p>The main idea of ​​the developers was to provide high-level communication based on the then-existing "TYPE 2" standard for use in transmitting additional parameters for both AC and DC charging systems.</p>
                     <div class="figures-inline" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-end; justify-content: center; margin: 1rem 0;">
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Combo-ccs-eu.svg" alt="CCS 2" style="width: 200px; height: auto; object-fit: contain;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Combo-ccs-eu.svg" alt="CCS 2" loading="lazy" decoding="async" style="width: 200px; height: auto; object-fit: contain;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">CCS2 (IEC-62196-3)</figcaption>
                         </figure>
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Type_2_mennekes.svg" alt="Type 2" style="width: 200px; height: auto; object-fit: contain;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Type_2_mennekes.svg" alt="Type 2" loading="lazy" decoding="async" style="width: 200px; height: auto; object-fit: contain;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">TYPE 2 (IEC-62196-2)</figcaption>
                         </figure>
                     </div>
@@ -65,7 +65,7 @@
                     <h2 class="section-title">Hardware</h2>
                     <div class="card p-2">
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="../img/ccs_wiki/hadware_block.png" alt="CCS Hardware" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="../img/ccs_wiki/hadware_block.png" alt="CCS Hardware" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">The image above shows the block diagram of the PLC hardware implementation.</figcaption>
                         </figure>
                         <h6 style="margin-bottom: 0.5rem; color: var(--accent); font-size: 0.95rem;">Blocks description:</h6>
@@ -90,7 +90,7 @@
                             In addition to changing the "CP" signal level, high-level communication occurs. The "CP" signal is used as the carrier frequency. High-level communication is an OFDM modulated signal.
                         </p>
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="../img/ccs_wiki/plc_communication.png" alt="CCS Hardware" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="../img/ccs_wiki/plc_communication.png" alt="CCS Hardware" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">The image above shows the signal on CP line.</figcaption>
                         </figure>
                     </div>
@@ -103,18 +103,18 @@
                         <p>Upon detecting a PWM signal with a 5% duty cycle on the line, the vehicle initiates high-level communication.</p>
                         <p>The message exchange process, called SLAC.</p>
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="../img/ccs_wiki/slac_seq.png" alt="SLAC seq" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="../img/ccs_wiki/slac_seq.png" alt="SLAC seq" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">SLAC sequence.</figcaption>
                         </figure>
                         <p>The main objective of this process is to determine whether the charging station is connected to the electric vehicle by measuring the attenuation of the PLC signal. At this stage, we also learn the MAC address of the electric vehicle and communicate our MAC address to it.</p>
                         <p>After receiving "CM_SLAC_MATCH.CNF" the electric vehicle initiates the procedure of exchanging IPv6 addresses by means of: SDP procedure and ICMPv6 process.</p>
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="../img/ccs_wiki/ipv6_1.png" alt="SLAC seq" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="../img/ccs_wiki/ipv6_1.png" alt="SLAC seq" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">SDP log.</figcaption>
                         </figure>
                         After this stage, we will also find out the ports for further establishment of TCP connection.
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="../img/ccs_wiki/ipv6_2.png" alt=" " style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="../img/ccs_wiki/ipv6_2.png" alt=" " loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">SDP log.</figcaption>
                         </figure>
                         <p> The entire subsequent process of negotiating charging session parameters occurs using EXI (Efficient XML Interchange). This data exchange model, based on defined schemas, enables data compression to ensure more efficient use of communication channel bandwidth. </p>
@@ -122,7 +122,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">SupportedAppProtocol processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_protocols.png" alt="SupportedAppProtocol" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_protocols.png" alt="SupportedAppProtocol" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">At this stage, the electric vehicle reports the supported charging protocols (DIN70121, ISO15118) and standard versions.
                                 The controller selects the protocol it will use to charge the electric vehicle.</p>
@@ -130,21 +130,21 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">SessionSetup processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_sesion_setup.png" alt="SessionSetup" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_sesion_setup.png" alt="SessionSetup" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">At this stage, the electric vehicle and charging controller exchange EVCCID and EVSEID values.</p>
                         </div>
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">ServiceDiscovery processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_discovery.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_discovery.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">At this stage, the charging controller reports available services.</p>
                         </div>
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">ServicePaymentSelection processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_service_pay.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_service_pay.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">At this stage based on the provided services and the corresponding payment options by the SECC this message pair allows the transmission of the selected PaymentOption, SelectedServices and related ParameterSets.</p>
                         </div>
@@ -152,7 +152,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">ServicePaymentSelection processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_service_pay.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_service_pay.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">At this stage based on the provided services and the corresponding payment options by the SECC this message pair allows the transmission of the selected PaymentOption, SelectedServices and related ParameterSets.</p>
                         </div>
@@ -160,7 +160,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">ContractAuthentication processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_contract.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_contract.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">By using the EVSEProcessing parameter, the EVSE can indicate to the EVCC that the processing has not finished but a response message was sent to fulfil the timeout and performance requirements.
                                 This allows delaying the V2G Communication Session while fulfilling the performance and timeout requirements.</p>
@@ -169,7 +169,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">ChargingParameterDetection processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_param_detect.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_param_detect.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">At this stage, the electric vehicle and charging controller are configured with charging session parameters (maximum allowable current, minimum allowable voltage, maximum power, etc.)</p>
                         </div>
@@ -177,7 +177,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">CableCheck processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_cable_check.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_cable_check.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">At this stage, the electric vehicle indicates that it is ready for the insulation test. The charging station performs the test using its built-in insulation tester and, upon completion, notifies the electric vehicle of the test status.</p>
                         </div>
@@ -185,7 +185,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">PreСharge processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_pre_charge.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_pre_charge.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">At this stage, the vehicle requests a specific voltage and current from the charging station, allowing the station's slower power modules to reach the required level in advance.</p>
                         </div>
@@ -193,7 +193,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">PowerDelivery processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_power_deliv.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_power_deliv.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">The electric vehicle measures the voltage requested during the "Precharge" stage and, upon detecting that the voltage level reaches a specified value, generates a "Power Delivery Request," indicating that it is ready to charge.</p>
                         </div>
@@ -201,7 +201,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Charging processing</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_charging.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_charging.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">During the charging process, the electric vehicle requests current, the voltage indicates the percentage of charge and a number of other parameters, the charging controller reports the output voltage level, current, and related parameters.</p>
                         </div>
@@ -211,11 +211,11 @@
                             <p style="margin: 0; line-height: 1.6;">The stopping process can be initiated by either the electric vehicle or the charging station.</p>
                             <p style="margin: 0; line-height: 1.6;">Stopping a charging session results in the generation of a "PowerDeliveryReq" and the setting of the corresponding flag.</p>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_stop1.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_stop1.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">The electric vehicle can then initiate the "Welding Detection" process. Alternatively, it can immediately generate a "Session Stop Req".</p>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="../img/ccs_wiki/ipv6_stop2.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="../img/ccs_wiki/ipv6_stop2.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">The charging station must ensure that the power modules are stopped and all necessary stopping procedures are carried out.</p>
                         </div>

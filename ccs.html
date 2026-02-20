@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
     <link rel="stylesheet" href="css/site.css">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-umd.js"></script>
+    <script nomodule defer src="https://unpkg.com/@google/model-viewer/dist/model-viewer-umd.js"></script>
 </head>
 <body class="theme-ccs">
     <div id="navbar-placeholder" data-lang="ru"></div>
@@ -38,7 +38,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-icon">
-                <img src="img/ccs_icon.png" alt="CCS" style="width:100%; height:100%; object-fit: contain;">
+                <img src="img/ccs_icon.png" alt="CCS" fetchpriority="high" decoding="async" style="width:100%; height:100%; object-fit: contain;">
             </div>
             <h1 class="text-xxl">CCS</h1>
             <p class="text-large">Стандарт быстрой зарядки постоянным током для Европы и Северной Америки, один разъём для AC и DC.</p>
@@ -56,7 +56,7 @@
                             <p>Контроллер предназначен для работы в составе зарядной станции для электромобилей. Поддерживаются стандарты DIN SPEC 70121 и ISO 15118.</p>
                             <div class="columns" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
                                 <div class="column col-12 col-md-4" style="text-align: center;">
-                                    <img src="img/ccs_post/CCS_Photo-2.png" alt="Контроллер CCS" class="img-responsive rounded" style="width: 100%; max-width: 400px; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                                    <img src="img/ccs_post/CCS_Photo-2.png" alt="Контроллер CCS" loading="lazy" decoding="async" class="img-responsive rounded" style="width: 100%; max-width: 400px; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
                                 </div>
                                 <div>
                                     <span class="chip">Напряжение питания: 12В ± 5%</span>
@@ -118,7 +118,7 @@ NUM_SOUNDS = 10, TIME_OUT = 6, forw_Sta = [00:7d:fa:06:9f:4e], run_id = [fc:fd:d
                 <h3 class="section-title">3D-модель:</h3>
                 <div class="card p-2">
                     <div class="model-viewer-wrap" style="width: 100%; max-width: 600px; height: 400px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); position: relative;">
-                        <model-viewer src="img/CCS_V7.glb" alt="3D-модель разъёма CCS" camera-controls touch-action="pan-y" auto-rotate camera-orbit="45deg 75deg 2.5m" loading="eager" style="width: 100%; height: 100%; background-color: #e8eaf6;">
+                        <model-viewer src="img/CCS_V7.glb" alt="3D-модель разъёма CCS" camera-controls touch-action="pan-y" auto-rotate camera-orbit="45deg 75deg 2.5m" loading="lazy" style="width: 100%; height: 100%; background-color: #e8eaf6;">
                             <div slot="poster" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #e8eaf6; color: #1a237e; font-size: 1rem;">Загрузка 3D-модели…</div>
                         </model-viewer>
                     </div>
@@ -131,7 +131,7 @@ NUM_SOUNDS = 10, TIME_OUT = 6, forw_Sta = [00:7d:fa:06:9f:4e], run_id = [fc:fd:d
                 <h3 class="section-title">Типовая схема подключения</h3>
                 <div class="card p-2">
                     <div style="text-align: center; margin: 1.5rem 0;">
-                        <img src="img/ccs_post/ccs_connection.png" alt="Схема подключения CCS" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                        <img src="img/ccs_post/ccs_connection.png" alt="Схема подключения CCS" loading="lazy" decoding="async" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@ NUM_SOUNDS = 10, TIME_OUT = 6, forw_Sta = [00:7d:fa:06:9f:4e], run_id = [fc:fd:d
                 <h3 class="section-title">Структурная схема контроллера</h3>
                 <div class="card p-2">
                     <div style="text-align: center; margin: 1.5rem 0;">
-                        <img src="img/ccs_post/ccs_struct.png" alt="Структурная схема CCS" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
+                        <img src="img/ccs_post/ccs_struct.png" alt="Структурная схема CCS" loading="lazy" decoding="async" class="img-responsive rounded" style="max-width: 100%; width: auto; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0 auto; display: block;">
                     </div>
                 </div>
             </div>

@@ -34,7 +34,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-icon">
-                <img src="img/ccs_icon.png" alt="CCS Icon" style="width:100%; height:100%; object-fit: contain;">
+                <img src="img/ccs_icon.png" alt="CCS Icon" fetchpriority="high" decoding="async" style="width:100%; height:100%; object-fit: contain;">
             </div>
             <h1 class="text-xxl">CCS Controller Wiki</h1>
             <p class="text-large">Техническая документация и спецификации контроллеров зарядки CCS</p>
@@ -51,11 +51,11 @@
                     <p>Основная идея разработчиков — обеспечить высокоуровневую связь на базе существовавшего тогда стандарта «TYPE 2» для передачи дополнительных параметров систем зарядки переменным и постоянным током.</p>
                     <div class="figures-inline" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-end; justify-content: center; margin: 1rem 0;">
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Combo-ccs-eu.svg" alt="CCS 2" style="width: 200px; height: auto; object-fit: contain;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Combo-ccs-eu.svg" alt="CCS 2" loading="lazy" decoding="async" style="width: 200px; height: auto; object-fit: contain;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">CCS2 (IEC-62196-3)</figcaption>
                         </figure>
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Type_2_mennekes.svg" alt="Type 2" style="width: 200px; height: auto; object-fit: contain;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Type_2_mennekes.svg" alt="Type 2" loading="lazy" decoding="async" style="width: 200px; height: auto; object-fit: contain;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">TYPE 2 (IEC-62196-2)</figcaption>
                         </figure>
                     </div>
@@ -65,7 +65,7 @@
                     <h2 class="section-title">Аппаратная часть</h2>
                     <div class="card p-2">
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="img/ccs_wiki/hadware_block.png" alt="Аппаратная часть CCS" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="img/ccs_wiki/hadware_block.png" alt="Аппаратная часть CCS" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Блок-схема аппаратной реализации PLC.</figcaption>
                         </figure>
                         <h6 style="margin-bottom: 0.5rem; color: var(--accent); font-size: 0.95rem;">Описание блоков:</h6>
@@ -90,7 +90,7 @@
                             Помимо изменения уровня сигнала «CP» осуществляется высокоуровневая связь. Сигнал «CP» используется как несущая частота. Высокоуровневая связь — это OFDM-модулированный сигнал.
                         </p>
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="img/ccs_wiki/plc_communication.png" alt="Сигнал на линии CP" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="img/ccs_wiki/plc_communication.png" alt="Сигнал на линии CP" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Сигнал на линии CP.</figcaption>
                         </figure>
                     </div>
@@ -107,18 +107,18 @@
                         <p>Обнаружив на линии ШИМ-сигнал со скважностью 5%, автомобиль инициирует высокоуровневую связь.</p>
                         <p>Процесс обмена сообщениями называется SLAC.</p>
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="img/ccs_wiki/slac_seq.png" alt="Последовательность SLAC" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="img/ccs_wiki/slac_seq.png" alt="Последовательность SLAC" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">Последовательность SLAC.</figcaption>
                         </figure>
                         <p>Основная цель этого процесса — определить подключение зарядной станции к электромобилю по затуханию PLC-сигнала. На этом этапе также узнаётся MAC-адрес электромобиля и передаётся ему наш MAC-адрес.</p>
                         <p>После получения «CM_SLAC_MATCH.CNF» электромобиль инициирует процедуру обмена IPv6-адресами посредством процедуры SDP и процесса ICMPv6.</p>
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="img/ccs_wiki/ipv6_1.png" alt="SDP лог" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="img/ccs_wiki/ipv6_1.png" alt="SDP лог" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">SDP лог.</figcaption>
                         </figure>
                         <p>После этого этапа также определяются порты для последующего установления TCP-соединения.</p>
                         <figure style="margin: 0; text-align: center; flex: 0 0 auto;">
-                            <img src="img/ccs_wiki/ipv6_2.png" alt="SDP лог" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="img/ccs_wiki/ipv6_2.png" alt="SDP лог" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
                             <figcaption style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">SDP лог.</figcaption>
                         </figure>
                         <p>Весь последующий процесс согласования параметров сеанса зарядки происходит с использованием EXI (Efficient XML Interchange). Эта модель обмена данными на основе заданных схем обеспечивает сжатие данных для более эффективного использования полосы канала связи.</p>
@@ -126,28 +126,28 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка SupportedAppProtocol</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_protocols.png" alt="SupportedAppProtocol" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_protocols.png" alt="SupportedAppProtocol" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">На этом этапе электромобиль сообщает поддерживаемые протоколы зарядки (DIN70121, ISO15118) и версии стандартов. Контроллер выбирает протокол, который будет использоваться для зарядки электромобиля.</p>
                         </div>
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка SessionSetup</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_sesion_setup.png" alt="SessionSetup" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_sesion_setup.png" alt="SessionSetup" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">На этом этапе электромобиль и контроллер зарядки обмениваются значениями EVCCID и EVSEID.</p>
                         </div>
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка ServiceDiscovery</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_discovery.png" alt="ServiceDiscovery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_discovery.png" alt="ServiceDiscovery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">На этом этапе контроллер зарядки сообщает доступные сервисы.</p>
                         </div>
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка ServicePaymentSelection</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_service_pay.png" alt="ServicePaymentSelection" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_service_pay.png" alt="ServicePaymentSelection" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">На этом этапе на основе предоставленных SECC сервисов и вариантов оплаты эта пара сообщений позволяет передать выбранные PaymentOption, SelectedServices и связанные ParameterSets.</p>
                         </div>
@@ -155,7 +155,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка ServicePaymentSelection</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_service_pay.png" alt="ServicePaymentSelection" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_service_pay.png" alt="ServicePaymentSelection" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">На этом этапе на основе предоставленных SECC сервисов и вариантов оплаты эта пара сообщений позволяет передать выбранные PaymentOption, SelectedServices и связанные ParameterSets.</p>
                         </div>
@@ -163,7 +163,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка ContractAuthentication</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_contract.png" alt="ContractAuthentication" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_contract.png" alt="ContractAuthentication" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">С помощью параметра EVSEProcessing зарядная станция может сообщить электромобилю, что обработка ещё не завершена, но ответное сообщение отправлено для соблюдения требований по таймауту и производительности. Это позволяет отложить сеанс связи V2G при соблюдении указанных требований.</p>
                         </div>
@@ -171,7 +171,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка ChargingParameterDetection</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_param_detect.png" alt="ChargingParameterDetection" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_param_detect.png" alt="ChargingParameterDetection" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">На этом этапе электромобиль и контроллер зарядки согласуют параметры сеанса зарядки (максимально допустимый ток, минимально допустимое напряжение, максимальная мощность и т.д.).</p>
                         </div>
@@ -179,7 +179,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка CableCheck</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_cable_check.png" alt="CableCheck" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_cable_check.png" alt="CableCheck" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">На этом этапе электромобиль сообщает о готовности к проверке изоляции. Зарядная станция выполняет проверку встроенным мегомметром и по завершении уведомляет электромобиль о результате.</p>
                         </div>
@@ -187,7 +187,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка PreCharge</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_pre_charge.png" alt="PreCharge" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_pre_charge.png" alt="PreCharge" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">На этом этапе автомобиль запрашивает у зарядной станции заданные напряжение и ток, чтобы более медленные силовые модули станции успели выйти на требуемый уровень заранее.</p>
                         </div>
@@ -195,7 +195,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка PowerDelivery</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_power_deliv.png" alt="PowerDelivery" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_power_deliv.png" alt="PowerDelivery" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">Электромобиль измеряет напряжение, запрошенное на этапе Precharge, и при достижении заданного уровня формирует «Power Delivery Request», сообщая о готовности к зарядке.</p>
                         </div>
@@ -203,7 +203,7 @@
                         <div class="wiki-step" style="margin-bottom: 1.5rem; padding: 1rem 1.25rem; background: var(--chip-bg); border-radius: 10px; border-left: 4px solid var(--accent);">
                             <h6 style="margin: 0 0 0.75rem 0; color: var(--accent); font-size: 0.95rem; font-weight: 700;">Обработка Charging</h6>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_charging.png" alt="Charging" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_charging.png" alt="Charging" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">В процессе зарядки электромобиль запрашивает ток, по напряжению передаётся процент заряда и ряд других параметров; контроллер зарядки сообщает выходное напряжение, ток и связанные параметры.</p>
                         </div>
@@ -213,11 +213,11 @@
                             <p style="margin: 0; line-height: 1.6;">Остановку может инициировать электромобиль или зарядная станция.</p>
                             <p style="margin: 0; line-height: 1.6;">Остановка сеанса зарядки приводит к формированию «PowerDeliveryReq» и установке соответствующего флага.</p>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_stop1.png" alt="Завершение сеанса" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_stop1.png" alt="Завершение сеанса" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">Электромобиль может затем инициировать процедуру «Welding Detection» или сразу сформировать «Session Stop Req».</p>
                             <figure style="margin: 0 0 0.75rem 0; text-align: center;">
-                                <img src="img/ccs_wiki/ipv6_stop2.png" alt="Завершение сеанса" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                <img src="img/ccs_wiki/ipv6_stop2.png" alt="Завершение сеанса" loading="lazy" decoding="async" style="width: 90%; max-width: 900px; height: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                             </figure>
                             <p style="margin: 0; line-height: 1.6;">Зарядная станция должна обеспечить остановку силовых модулей и выполнение всех необходимых процедур остановки.</p>
                         </div>

@@ -61,7 +61,7 @@
     <section id="home" class="hero-section">
         <div class="hero-content">
             <div class="hero-logo">
-                <img src="img/logo.png" alt="MW Controllers">
+                <img src="img/logo.png" alt="MW Controllers" fetchpriority="high" decoding="async">
             </div>
             <h1 class="hero-title">Контроллеры для зарядных станций</h1>
 
@@ -121,17 +121,17 @@
                 <h2 class="section-title">Галерея</h2>
                 <div class="gallery-slideshow">
                     <div class="gallery-slides">
-                        <div class="gallery-slide active"><img src="img/slides/wallbox-20kW-2.jpg" alt="Wallbox 20 кВт"></div>
-                        <div class="gallery-slide"><img src="img/slides/AC_DRAFT_Firs-2.jpg" alt="AC зарядная станция"></div>
-                        <div class="gallery-slide"><img src="img/slides/photo_2024-02-13_20-04-53.jpg" alt="Контроллер зарядной станции"></div>
-                        <div class="gallery-slide"><img src="img/slides/photo_2025-11-24_16-41-26-2.jpg" alt="Оборудование MW Controllers"></div>
-                        <div class="gallery-slide"><img src="img/slides/photo_2025-11-24_16-41-33-2.jpg" alt="Контроллер зарядной станции"></div>
-                        <div class="gallery-slide"><img src="img/slides/photo_2025-11-24_16-41-46-2.jpg" alt="Оборудование MW Controllers"></div>
-                        <div class="gallery-slide"><img src="img/slides/photo_2025-11-24_16-41-50-2.jpg" alt="Контроллер зарядной станции"></div>
-                        <div class="gallery-slide"><img src="img/slides/photo_2025-11-24_16-41-53-2.jpg" alt="Оборудование MW Controllers"></div>
-                        <div class="gallery-slide"><img src="img/slides/photo_2025-11-24_16-41-57-2.jpg" alt="Контроллер зарядной станции"></div>
-                        <div class="gallery-slide"><img src="img/slides/photo_2025-11-24_16-42-00-2.jpg" alt="Оборудование MW Controllers"></div>
-                        <div class="gallery-slide"><img src="img/slides/photo_2025-11-24_16-42-09-2.jpg" alt="Контроллер зарядной станции"></div>
+                        <div class="gallery-slide active"><img src="img/slides/wallbox-20kW-2.jpg" alt="Wallbox 20 кВт" fetchpriority="high" decoding="async"></div>
+                        <div class="gallery-slide"><img src="" data-src="img/slides/AC_DRAFT_Firs-2.jpg" alt="AC зарядная станция" decoding="async"></div>
+                        <div class="gallery-slide"><img src="" data-src="img/slides/photo_2024-02-13_20-04-53.jpg" alt="Контроллер зарядной станции" decoding="async"></div>
+                        <div class="gallery-slide"><img src="" data-src="img/slides/photo_2025-11-24_16-41-26-2.jpg" alt="Оборудование MW Controllers" decoding="async"></div>
+                        <div class="gallery-slide"><img src="" data-src="img/slides/photo_2025-11-24_16-41-33-2.jpg" alt="Контроллер зарядной станции" decoding="async"></div>
+                        <div class="gallery-slide"><img src="" data-src="img/slides/photo_2025-11-24_16-41-46-2.jpg" alt="Оборудование MW Controllers" decoding="async"></div>
+                        <div class="gallery-slide"><img src="" data-src="img/slides/photo_2025-11-24_16-41-50-2.jpg" alt="Контроллер зарядной станции" decoding="async"></div>
+                        <div class="gallery-slide"><img src="" data-src="img/slides/photo_2025-11-24_16-41-53-2.jpg" alt="Оборудование MW Controllers" decoding="async"></div>
+                        <div class="gallery-slide"><img src="" data-src="img/slides/photo_2025-11-24_16-41-57-2.jpg" alt="Контроллер зарядной станции" decoding="async"></div>
+                        <div class="gallery-slide"><img src="" data-src="img/slides/photo_2025-11-24_16-42-00-2.jpg" alt="Оборудование MW Controllers" decoding="async"></div>
+                        <div class="gallery-slide"><img src="" data-src="img/slides/photo_2025-11-24_16-42-09-2.jpg" alt="Контроллер зарядной станции" decoding="async"></div>
                     </div>
                     <button type="button" class="gallery-prev" aria-label="Предыдущий">‹</button>
                     <button type="button" class="gallery-next" aria-label="Следующий">›</button>
@@ -230,8 +230,14 @@
     var current = 0;
     var autoplayMs = 4000;
     var timer = null;
+    function loadImg(idx) {
+        var img = slides[idx] && slides[idx].querySelector('img[data-src]');
+        if (img) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
+    }
     function show(n) {
         current = (n + slides.length) % slides.length;
+        loadImg(current);
+        loadImg((current + 1) % slides.length);
         slides.forEach(function (s, i) { s.classList.toggle('active', i === current); });
         dotsContainer.querySelectorAll('span').forEach(function (d, i) { d.classList.toggle('active', i === current); });
     }
