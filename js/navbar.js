@@ -11,12 +11,21 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(function(html) {
             placeholder.innerHTML = html;
 
-            var pathname = (window.location.pathname || '').replace(/\\/g, '/');
-            var segments = pathname.split('/').filter(Boolean);
-            var currentFile = segments.length ? segments[segments.length - 1] : 'index.html';
-            if (!currentFile || currentFile === '') currentFile = 'index.html';
-
+            var pathname = (window.location.pathname || '/').replace(/\\/g, '/');
             var inEn = pageLang === 'en';
+
+            // Extract the page filename, normalising index/directory to empty string
+            var file;
+            if (inEn) {
+                file = pathname.replace(/^\/en\//i, '');
+            } else {
+                file = pathname.replace(/^\//, '');
+            }
+            if (file === 'index.html' || file === '') file = '';
+
+            // Build canonical absolute targets: '' → '/' or '/en/', 'ccs.html' → '/ccs.html' or '/en/ccs.html'
+            var ruTarget = '/' + file;
+            var enTarget = '/en/' + file;
 
             var enOpt = placeholder.querySelector('.lang-option[data-lang="en"]');
             var ruOpt = placeholder.querySelector('.lang-option[data-lang="ru"]');
@@ -29,13 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 enOpt.classList.add('lang-active');
                 enOpt.href = '#';
                 enOpt.style.pointerEvents = 'none';
-                ruOpt.href = '../' + currentFile;
+                ruOpt.href = ruTarget;
                 ruOpt.style.pointerEvents = '';
             } else {
                 ruOpt.classList.add('lang-active');
                 ruOpt.href = '#';
                 ruOpt.style.pointerEvents = 'none';
-                enOpt.href = 'en/' + currentFile;
+                enOpt.href = enTarget;
                 enOpt.style.pointerEvents = '';
             }
         })
